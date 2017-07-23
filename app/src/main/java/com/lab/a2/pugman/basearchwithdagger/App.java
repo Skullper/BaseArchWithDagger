@@ -8,7 +8,7 @@ import com.lab.a2.pugman.basearchwithdagger.di.components.DaggerAppComponent;
 import javax.inject.Inject;
 
 import dagger.android.DispatchingAndroidInjector;
-import dagger.android.HasDispatchingActivityInjector;
+import dagger.android.HasActivityInjector;
 
 /**
  * Created by pugman on 21.07.17.
@@ -17,7 +17,7 @@ import dagger.android.HasDispatchingActivityInjector;
  */
 
 
-public class App extends Application implements HasDispatchingActivityInjector{
+public class App extends Application implements HasActivityInjector{
 
 	@Inject
 	DispatchingAndroidInjector<Activity> androidInjector;

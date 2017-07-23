@@ -9,5 +9,5 @@ package com.lab.a2.pugman.basearchwithdagger.main;
 
 public interface MainView{
 
-	void someFun();
+	void loginSuccess();
 }

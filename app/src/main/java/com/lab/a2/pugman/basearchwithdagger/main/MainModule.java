@@ -1,7 +1,12 @@
 package com.lab.a2.pugman.basearchwithdagger.main;
 
+import android.support.v4.app.FragmentManager;
+
+import com.lab.a2.pugman.basearchwithdagger.main.fragments.fragment_di.WelcomeFragmentSubComponent;
+
 import dagger.Binds;
 import dagger.Module;
+import dagger.Provides;
 
 /**
  * Created by pugman on 21.07.17.
@@ -9,8 +14,15 @@ import dagger.Module;
  * company - A2Lab
  */
 
-@Module
+@Module(subcomponents = WelcomeFragmentSubComponent.class)
 public abstract class MainModule{
 
-	@Binds abstract MainView provideMainView(TestActivity activity);
+	@Binds
+	abstract MainView provideMainView(MainActivity activity);
+
+	@Provides
+	static FragmentManager providesFragmentManager(MainActivity activity){
+		return activity.getSupportFragmentManager();
+	}
+
 }

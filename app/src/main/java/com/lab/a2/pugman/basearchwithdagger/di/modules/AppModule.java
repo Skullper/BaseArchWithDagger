@@ -5,6 +5,8 @@ import android.content.Context;
 import com.lab.a2.pugman.basearchwithdagger.App;
 import com.lab.a2.pugman.basearchwithdagger.main.MainSubComponent;
 
+import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -17,14 +19,11 @@ import dagger.Provides;
 @Module(subcomponents = {MainSubComponent.class})
 public class AppModule{
 
-//	private final App app;
-//
-//	public AppModule(App app){
-//		this.app = app;
-//	}
-
+	@Singleton
 	@Provides
-	public Context providesContext(App app){
+	Context providesContext(App app){
 		return app.getApplicationContext();
 	}
+
+
 }
