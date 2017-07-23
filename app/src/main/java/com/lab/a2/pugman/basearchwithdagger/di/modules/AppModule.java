@@ -3,7 +3,6 @@ package com.lab.a2.pugman.basearchwithdagger.di.modules;
 import android.content.Context;
 
 import com.lab.a2.pugman.basearchwithdagger.App;
-import com.lab.a2.pugman.basearchwithdagger.main.MainSubComponent;
 
 import javax.inject.Singleton;
 
@@ -16,7 +15,7 @@ import dagger.Provides;
  * company - A2Lab
  */
 
-@Module(subcomponents = {MainSubComponent.class})
+@Module
 public class AppModule{
 
 	@Singleton

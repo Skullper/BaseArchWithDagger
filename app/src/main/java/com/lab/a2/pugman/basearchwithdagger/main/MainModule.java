@@ -2,8 +2,6 @@ package com.lab.a2.pugman.basearchwithdagger.main;
 
 import android.support.v4.app.FragmentManager;
 
-import com.lab.a2.pugman.basearchwithdagger.main.fragments.fragment_di.WelcomeFragmentSubComponent;
-
 import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
@@ -14,7 +12,7 @@ import dagger.Provides;
  * company - A2Lab
  */
 
-@Module(subcomponents = WelcomeFragmentSubComponent.class)
+@Module
 public abstract class MainModule{
 
 	@Binds
