@@ -1,23 +1,15 @@
 package com.lab.a2.pugman.basearchwithdagger.main;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.lab.a2.pugman.basearchwithdagger.R;
+import com.lab.a2.pugman.basearchwithdagger.base.BaseActivity;
 import com.lab.a2.pugman.basearchwithdagger.main.fragments.WelcomeFragment;
 
 import javax.inject.Inject;
-
-import dagger.android.AndroidInjection;
-import dagger.android.AndroidInjector;
-import dagger.android.DispatchingAndroidInjector;
-import dagger.android.support.HasSupportFragmentInjector;
 
 /**
  * Created by pugman on 21.07.17.
@@ -26,22 +18,22 @@ import dagger.android.support.HasSupportFragmentInjector;
  */
 
 
-public class MainActivity extends AppCompatActivity implements MainView, HasSupportFragmentInjector{
+public class MainActivity extends BaseActivity implements MainView{
 
 	@Inject
 	FragmentManager                      fragmentManager;
 	@Inject
 	MainPresenterImpl                    presenter;
-	@Inject
-	DispatchingAndroidInjector<Fragment> fragmentInjector;
 
 	private EditText editText;
 
 	@Override
-	protected void onCreate(@Nullable Bundle savedInstanceState){
-		AndroidInjection.inject(this);
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+	protected int getLayoutId(){
+		return R.layout.activity_main;
+	}
+
+	@Override
+	protected void bindViews(){
 		editText = (EditText) findViewById(R.id.userName);
 	}
 
@@ -55,10 +47,5 @@ public class MainActivity extends AppCompatActivity implements MainView, HasSupp
 		if(!editText.getText().toString().isEmpty()) {
 			presenter.loginUser(editText.getText().toString());
 		}
-	}
-
-	@Override
-	public AndroidInjector<Fragment> supportFragmentInjector(){
-		return fragmentInjector;
 	}
 }
