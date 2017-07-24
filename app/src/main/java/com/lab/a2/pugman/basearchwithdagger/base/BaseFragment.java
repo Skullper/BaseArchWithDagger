@@ -19,7 +19,7 @@ import dagger.android.support.AndroidSupportInjection;
 
 public abstract class BaseFragment<T extends BaseActivity> extends Fragment{
 
-	protected @Nullable T activity;
+	protected T activity;
 
 	protected abstract T bindActivity();
 
@@ -52,9 +52,4 @@ public abstract class BaseFragment<T extends BaseActivity> extends Fragment{
 	protected void findViews(View rootView){
 	}
 
-	@Override
-	public void onDetach(){
-		super.onDetach();
-		activity = null;
-	}
 }

@@ -57,19 +57,17 @@ public class WelcomeFragment extends BaseFragment<MainActivity>{
 			public void onResponse(Call<UserResponse> call, Response<UserResponse> response){
 				switch(response.code()){
 					case 200:
-						if(activity != null) {
-							Toast.makeText(activity.getApplicationContext(), "Restart", Toast.LENGTH_LONG).show();
-						}
+						Toast.makeText(activity.getApplicationContext(), "Restart", Toast.LENGTH_LONG).show();
 						break;
 					default:
-						Log.e("WelcomeFragment:", "WrongResponseCode: "+response.code());
+						Log.e("WelcomeFragment:", "WrongResponseCode: " + response.code());
 						break;
 				}
 			}
 
 			@Override
 			public void onFailure(Call<UserResponse> call, Throwable t){
-				Log.e("WelcomeFragment:", "onFailure: "+t.getMessage());
+				Log.e("WelcomeFragment:", "onFailure: " + t.getMessage());
 			}
 		});
 	}
