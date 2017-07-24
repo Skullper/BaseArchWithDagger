@@ -1,5 +1,7 @@
 package com.lab.a2.pugman.basearchwithdagger.main;
 
+import com.lab.a2.pugman.basearchwithdagger.base.BaseView;
+
 /**
  * Created by pugman on 21.07.17.
  * Contact the developer - sckalper@gmail.com
@@ -7,7 +9,7 @@ package com.lab.a2.pugman.basearchwithdagger.main;
  */
 
 
-public interface MainView{
+public interface MainView extends BaseView{
 
 	void loginSuccess();
 }
