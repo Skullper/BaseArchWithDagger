@@ -26,6 +26,8 @@ public abstract class BaseActivity extends AppCompatActivity implements HasSuppo
 
 	protected abstract int getLayoutId();
 
+	protected abstract void bindViews();
+
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState){
 		AndroidInjection.inject(this);
@@ -39,5 +41,4 @@ public abstract class BaseActivity extends AppCompatActivity implements HasSuppo
 		return supportFragmentInjector;
 	}
 
-	protected void bindViews(){}
 }

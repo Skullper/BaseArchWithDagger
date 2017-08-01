@@ -25,6 +25,8 @@ public abstract class BaseFragment<T extends BaseActivity> extends Fragment{
 
 	protected abstract int getLayout();
 
+	protected abstract void findViews(View rootView);
+
 	@Override
 	public void onAttach(Context context){
 		AndroidSupportInjection.inject(this);
@@ -47,9 +49,6 @@ public abstract class BaseFragment<T extends BaseActivity> extends Fragment{
 	public void onViewCreated(View view, @Nullable Bundle savedInstanceState){
 		super.onViewCreated(view, savedInstanceState);
 		findViews(view);
-	}
-
-	protected void findViews(View rootView){
 	}
 
 }
