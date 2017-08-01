@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.lab.a2.pugman.basearchwithdagger.api.AppApiService;
 import com.lab.a2.pugman.basearchwithdagger.api.UserResponse;
+import com.lab.a2.pugman.basearchwithdagger.base.BasePresenter;
 
 import javax.inject.Inject;
 
@@ -15,16 +16,14 @@ import retrofit2.Response;
  * Created by pugman on 23.07.17.
  */
 
-public class MainPresenterImpl{
-
-	private MainView mView;
+public class MainPresenterImpl extends BasePresenter<MainView>{
 
 	@Inject
 	AppApiService api;
 
 	@Inject
 	public MainPresenterImpl(MainView view){
-		this.mView = view;
+		this.view = view;
 	}
 
 	public void loginUser(String name){
@@ -34,7 +33,7 @@ public class MainPresenterImpl{
 			public void onResponse(Call<UserResponse> call, Response<UserResponse> response){
 				switch(response.code()){
 					case 200:
-						mView.loginSuccess();
+						view.loginSuccess();
 						break;
 					default:
 						Log.e("MainPresenterImpl:", "ResponseCode: "+response.code());

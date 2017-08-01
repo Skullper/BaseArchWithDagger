@@ -12,20 +12,29 @@ import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.support.HasSupportFragmentInjector;
 
-/**
- * Created by pugman on 24.07.17.
- * Contact the developer - sckalper@gmail.com
- * company - A2Lab
+/*
+  Created by pugman on 24.07.17.
+  Contact the developer - sckalper@gmail.com
+  company - A2Lab
  */
 
-
+/**
+ * Class designed as parent for all Activities created in project.
+ */
 public abstract class BaseActivity extends AppCompatActivity implements HasSupportFragmentInjector{
 
 	@Inject
 	DispatchingAndroidInjector<Fragment> supportFragmentInjector;
 
+	/**
+	 * @return resourceId of layout which designed for current activity
+	 */
 	protected abstract int getLayoutId();
 
+	/**
+	 * Initialize all views here(eg. ButterKnife.bind(this)).
+	 * This method do the same as onCreate()
+	 */
 	protected abstract void bindViews();
 
 	@Override

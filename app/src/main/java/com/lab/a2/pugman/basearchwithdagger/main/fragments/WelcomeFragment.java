@@ -43,12 +43,12 @@ public class WelcomeFragment extends BaseFragment<MainActivity>{
 	}
 
 	@Override
-	protected int getLayout(){
+	protected int getLayoutId(){
 		return R.layout.fragment_welcome;
 	}
 
 	@Override
-	protected void findViews(View rootView){
+	protected void bindViews(View rootView){
 		String userName = getArguments().getString(EXTRA_USER_NAME, "Empty");
 		TextView welcomeText = (TextView) rootView.findViewById(R.id.welcomeTv);
 		welcomeText.setText(userName);
