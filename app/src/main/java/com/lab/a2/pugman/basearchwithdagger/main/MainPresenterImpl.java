@@ -17,14 +17,14 @@ import retrofit2.Response;
 
 public class MainPresenterImpl{
 
-	private MainView view;
+	private MainView mView;
 
 	@Inject
 	AppApiService api;
 
 	@Inject
 	public MainPresenterImpl(MainView view){
-		this.view = view;
+		this.mView = view;
 	}
 
 	public void loginUser(String name){
@@ -34,7 +34,7 @@ public class MainPresenterImpl{
 			public void onResponse(Call<UserResponse> call, Response<UserResponse> response){
 				switch(response.code()){
 					case 200:
-						view.loginSuccess();
+						mView.loginSuccess();
 						break;
 					default:
 						Log.e("MainPresenterImpl:", "ResponseCode: "+response.code());

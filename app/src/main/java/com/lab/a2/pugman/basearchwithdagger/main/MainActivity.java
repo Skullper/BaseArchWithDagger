@@ -25,7 +25,7 @@ public class MainActivity extends BaseActivity implements MainView{
 	@Inject
 	MainPresenterImpl                    presenter;
 
-	private EditText editText;
+	private EditText mEditText;
 
 	@Override
 	protected int getLayoutId(){
@@ -34,18 +34,18 @@ public class MainActivity extends BaseActivity implements MainView{
 
 	@Override
 	protected void bindViews(){
-		editText = (EditText) findViewById(R.id.userName);
+		mEditText = (EditText) findViewById(R.id.userName);
 	}
 
 	@Override
 	public void loginSuccess(){
-		fragmentManager.beginTransaction().add(R.id.container, WelcomeFragment.newInstance(editText.getText().toString()), "Welcome").commitAllowingStateLoss();
+		fragmentManager.beginTransaction().add(R.id.container, WelcomeFragment.newInstance(mEditText.getText().toString()), "Welcome").commitAllowingStateLoss();
 		Toast.makeText(getApplicationContext(), "User logged in successfully", Toast.LENGTH_LONG).show();
 	}
 
 	public void onLoginClick(View view){
-		if(!editText.getText().toString().isEmpty()) {
-			presenter.loginUser(editText.getText().toString());
+		if(!mEditText.getText().toString().isEmpty()) {
+			presenter.loginUser(mEditText.getText().toString());
 		}
 	}
 }
