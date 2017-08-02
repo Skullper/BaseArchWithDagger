@@ -32,7 +32,7 @@ public abstract class BaseActivity extends AppCompatActivity implements HasSuppo
 	protected abstract int getLayoutId();
 
 	/**
-	 * Initialize all views here(eg. ButterKnife.bind(this)).
+	 * Initialize all views here(e.g. ButterKnife.bind(this)).
 	 * This method do the same as onCreate()
 	 */
 	protected abstract void bindViews();

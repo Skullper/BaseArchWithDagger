@@ -6,6 +6,8 @@ import retrofit2.http.Path;
 
 /**
  * Created by pugman on 23.07.17.
+ * Contact the developer - sckalper@gmail.com
+ * company - A2Lab
  */
 
 public interface AppApiService{

@@ -41,7 +41,7 @@ public abstract class BaseFragment<T extends BaseActivity> extends Fragment{
 	protected abstract int getLayoutId();
 
 	/**
-	 * Initialize all views here(eg. ButterKnife.bind(this, rootView)).
+	 * Initialize all views here(e.g. ButterKnife.bind(this, rootView)).
 	 * This method do the same as onViewCreated()
 	 *
 	 * @param rootView already inflated view

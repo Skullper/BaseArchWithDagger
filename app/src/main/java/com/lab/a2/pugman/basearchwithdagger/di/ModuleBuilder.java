@@ -8,10 +8,10 @@ import com.lab.a2.pugman.basearchwithdagger.main.fragments.fragment_di.WelcomeFr
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 
-/**
- * Created by pugman on 21.07.17.
- * Contact the developer - sckalper@gmail.com
- * company - A2Lab
+/*
+  Created by pugman on 21.07.17.
+  Contact the developer - sckalper@gmail.com
+  company - A2Lab
  */
 
 /**

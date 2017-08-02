@@ -20,6 +20,8 @@ import retrofit2.Response;
 
 /**
  * Created by pugman on 23.07.17.
+ * Contact the developer - sckalper@gmail.com
+ * company - A2Lab
  */
 
 public class WelcomeFragment extends BaseFragment<MainActivity>{

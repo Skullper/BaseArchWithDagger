@@ -2,6 +2,8 @@ package com.lab.a2.pugman.basearchwithdagger.api;
 
 /**
  * Created by pugman on 23.07.17.
+ * Contact the developer - sckalper@gmail.com
+ * company - A2Lab
  */
 
 public class UserResponse{
