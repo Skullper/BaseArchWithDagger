@@ -1,6 +1,6 @@
 package com.lab.a2.pugman.basearchwithdagger.main;
 
-import android.support.v4.app.FragmentManager;
+import com.lab.a2.pugman.basearchwithdagger.utils.FragmentHelper;
 
 import dagger.Binds;
 import dagger.Module;
@@ -19,8 +19,7 @@ public abstract class MainModule{
 	abstract MainView provideMainView(MainActivity activity);
 
 	@Provides
-	static FragmentManager providesFragmentManager(MainActivity activity){
-		return activity.getSupportFragmentManager();
+	static FragmentHelper providesFragmentHelper(MainActivity activity){
+		return new FragmentHelper(activity);
 	}
-
 }

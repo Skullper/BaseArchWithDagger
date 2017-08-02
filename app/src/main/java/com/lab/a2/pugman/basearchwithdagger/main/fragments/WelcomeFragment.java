@@ -11,6 +11,7 @@ import com.lab.a2.pugman.basearchwithdagger.api.AppApiService;
 import com.lab.a2.pugman.basearchwithdagger.api.UserResponse;
 import com.lab.a2.pugman.basearchwithdagger.base.BaseFragment;
 import com.lab.a2.pugman.basearchwithdagger.main.MainActivity;
+import com.lab.a2.pugman.basearchwithdagger.utils.FragmentHelper;
 
 import javax.inject.Inject;
 
@@ -30,6 +31,9 @@ public class WelcomeFragment extends BaseFragment<MainActivity>{
 
 	@Inject
 	AppApiService appApiService;
+
+	@Inject
+	FragmentHelper fragmentHelper;
 
 	public static WelcomeFragment newInstance(String name){
 		Bundle args = new Bundle();
@@ -52,8 +56,18 @@ public class WelcomeFragment extends BaseFragment<MainActivity>{
 	@Override
 	protected void bindViews(View rootView){
 		String userName = getArguments().getString(EXTRA_USER_NAME, "Empty");
-		TextView welcomeText = (TextView) rootView.findViewById(R.id.welcomeTv);
+		final TextView welcomeText = (TextView) rootView.findViewById(R.id.welcomeTv);
 		welcomeText.setText(userName);
+		welcomeText.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View view){
+				if(welcomeText.getText().toString().contentEquals("New Welcome Frag")){
+					fragmentHelper.back();
+				} else{
+					fragmentHelper.add(WelcomeFragment.newInstance("New Welcome Frag"), R.id.container);
+				}
+			}
+		});
 		appApiService.getUser(userName).enqueue(new Callback<UserResponse>(){
 			@Override
 			public void onResponse(Call<UserResponse> call, Response<UserResponse> response){

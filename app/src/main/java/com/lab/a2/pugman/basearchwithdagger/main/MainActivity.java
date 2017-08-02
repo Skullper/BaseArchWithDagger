@@ -1,6 +1,5 @@
 package com.lab.a2.pugman.basearchwithdagger.main;
 
-import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -8,6 +7,7 @@ import android.widget.Toast;
 import com.lab.a2.pugman.basearchwithdagger.R;
 import com.lab.a2.pugman.basearchwithdagger.base.BaseActivity;
 import com.lab.a2.pugman.basearchwithdagger.main.fragments.WelcomeFragment;
+import com.lab.a2.pugman.basearchwithdagger.utils.FragmentHelper;
 
 import javax.inject.Inject;
 
@@ -21,9 +21,9 @@ import javax.inject.Inject;
 public class MainActivity extends BaseActivity implements MainView{
 
 	@Inject
-	FragmentManager                      fragmentManager;
+	FragmentHelper    fragmentHelper;
 	@Inject
-	MainPresenterImpl                    presenter;
+	MainPresenterImpl presenter;
 
 	private EditText mEditText;
 
@@ -39,7 +39,7 @@ public class MainActivity extends BaseActivity implements MainView{
 
 	@Override
 	public void loginSuccess(){
-		fragmentManager.beginTransaction().add(R.id.container, WelcomeFragment.newInstance(mEditText.getText().toString()), "Welcome").commitAllowingStateLoss();
+		fragmentHelper.add(WelcomeFragment.newInstance(mEditText.getText().toString()), R.id.container);
 		Toast.makeText(getApplicationContext(), "User logged in successfully", Toast.LENGTH_LONG).show();
 	}
 
